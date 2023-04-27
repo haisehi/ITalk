@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/select"
+        android:icon="@drawable/italklogo"
+        android:title=""
+        app:showAsAction="ifRoom"
+        >
+        <menu>
+            <item
+                android:id="@+id/menu_new_message"
+                android:title="New message"
+                android:icon="@drawable/ic_baseline_chat_24" />
+            <item
+                android:id="@+id/inforUser"
+                android:title="Information"
+                android:icon="@drawable/ic_baseline_person_24" />
+            <item
+                android:id="@+id/inforhome"
+                android:title="Information"
+                android:icon="@drawable/ic_baseline_home_24" />
+        </menu>
+    </item>
+</menu>

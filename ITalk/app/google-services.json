@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "667134851370",
+    "firebase_url": "https://italk-101d1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "italk-101d1",
+    "storage_bucket": "italk-101d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667134851370:android:a48930a7fba1b0e6570653",
+        "android_client_info": {
+          "package_name": "com.example.italk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667134851370-q629do1o3eo8fphep8grl2e02stmrrqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTWrs5p9rteGs2giCcMjH3T3IlNHESfoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667134851370-q629do1o3eo8fphep8grl2e02stmrrqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
