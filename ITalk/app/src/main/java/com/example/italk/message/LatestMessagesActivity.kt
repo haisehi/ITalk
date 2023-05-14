@@ -62,6 +62,7 @@ class LatestMessagesActivity : AppCompatActivity() {
         bottomMenu()
     }
 
+    val adapter =GroupAdapter<ViewHolder>()
 //    bottom menu
     private fun bottomMenu() {
         Log.d(TAG,"bottom menu")
@@ -118,7 +119,7 @@ class LatestMessagesActivity : AppCompatActivity() {
         }
     }
 
-    val adapter =GroupAdapter<ViewHolder>()
+
     //get information of user
     private fun fetchCurrentUser() {
         var uid = FirebaseAuth.getInstance().uid
@@ -144,31 +145,4 @@ class LatestMessagesActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
-//    //menu options
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when(item?.itemId){
-//            R.id.menu_new_message ->{
-//                var intent = Intent(this,NewMessageActivity::class.java)
-//                startActivity(intent)
-//            }
-//            R.id.inforUser ->{
-//                var intent = Intent(this,informationUser::class.java)
-//                intent.putExtra("userName",currentUser?.username)
-////                intent.putExtra("userUid",currentUser?.uid)
-////                intent.putExtra("userProfile",currentUser?.profileImageUri)
-////                intent.putExtra("userDate",currentUser?.birthDate)
-////                intent.putExtra("userPhone",currentUser?.phone)
-//                startActivity(intent)
-//            }
-////            }
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
-//
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.nav_menu,menu)
-//        return super.onCreateOptionsMenu(menu)
-//    }
-
 }

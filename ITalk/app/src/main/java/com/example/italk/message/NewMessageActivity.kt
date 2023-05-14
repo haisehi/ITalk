@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.italk.message.ChatLogActivity
 import com.example.italk.message.informationUser
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -30,9 +31,48 @@ class NewMessageActivity : AppCompatActivity() {
         recyclerview_newmessage.layoutManager = LinearLayoutManager(this)
         bottomMenu()
         fetchUsers()
+        searchView.setOnClickListener {
+            searchDataList()
+        }
     }
     companion object{
         val USER_KEY = "USER_KEY"
+    }
+
+
+    private fun searchDataList() {
+        val ref = FirebaseDatabase.getInstance().getReference("users")
+        val searchText = searchView.query.toString()
+
+        ref.orderByChild("username").startAt(searchText).endAt(searchText + "\uf8ff").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val adapter = GroupAdapter<com.xwray.groupie.ViewHolder>()
+
+                for (ds in snapshot.children) {
+                    val user = ds.getValue(User::class.java)
+                    user?.let {
+                        adapter.add(UserItem(user))
+                    }
+                }
+
+                adapter.setOnItemClickListener { item, _ ->
+                    val userItem = item as UserItem
+                    val intent = Intent(this@NewMessageActivity, ChatLogActivity::class.java)
+                    intent.putExtra(USER_KEY, userItem.user)
+                    startActivity(intent)
+                    finish()
+                }
+
+                runOnUiThread {
+                    // Update RecyclerView with search results
+                    recyclerview_newmessage.adapter = adapter
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("search", "Error getting search results", error.toException())
+            }
+        })
     }
 
     private fun fetchUsers() {

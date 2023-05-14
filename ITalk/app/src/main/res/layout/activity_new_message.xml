@@ -11,11 +11,15 @@
         android:id="@+id/recyclerview_newmessage"
         android:layout_width="409dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -26,4 +30,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_item_menu"
         android:background="@drawable/background_menu_bottom"/>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:iconifiedByDefault="false"
+        app:searchHintIcon="@null"
+        app:queryHint="..."
+        android:focusable="false"
+        app:closeIcon="@drawable/ic_baseline_clear_24"
+        app:searchIcon="@drawable/ic_baseline_search_24"
+        android:background="@drawable/border_fill"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
